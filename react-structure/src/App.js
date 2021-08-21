@@ -4,7 +4,7 @@ import First from './First';
 import Header from './DayOne/Header/Header';
 import AboutMe from './DayOne/AboutMe/AboutMe';
 import Skills from './DayOne/Skills/Skills';
-import Portfolio from './DayOne/Porfolio/Portfolio';
+import Portfolio from './DayOne/Portfolio/Portfolio';
 import References from './DayOne/References/References';
 
 const App = () => {
