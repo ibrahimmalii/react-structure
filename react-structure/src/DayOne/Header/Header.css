@@ -1,19 +1,8 @@
 
-
 .mainWrapper{
-    /* background-image:url(../../../public/images/03.jpg); */
-    /* background-size: cover; */
-    /* background-color : lightgray; */
+    background-image:url("https://th.bing.com/th/id/OIP.YGl5fwSVU7w9pVrkPem6jwHaFQ?pid=ImgDet&rs=1");
     height: 300px;
-    border:1px solid red;
-    
+    background-size: cover;
 };
 
-.contact {
-    background-color: gray;
-    color:red;
-    width: 50px;
-    height:50px;
-    border-radius: 20px;
-}
 

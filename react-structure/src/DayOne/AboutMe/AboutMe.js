@@ -3,7 +3,7 @@ import React from 'react';
 
 const AboutMe = () =>{
     return (
-        <div className="aboutMe mb-3">
+        <div className="aboutMe my-3">
             <div class="row">
                 <div class="col-5">
                     <h1 class="text-primary mt-4">About Me</h1>
