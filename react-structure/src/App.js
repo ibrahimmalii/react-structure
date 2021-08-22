@@ -1,11 +1,8 @@
 
 import './App.css';
 import First from './First';
-import Header from './DayOne/Header/Header';
-import AboutMe from './DayOne/AboutMe/AboutMe';
-import Skills from './DayOne/Skills/Skills';
-import Portfolio from './DayOne/Portfolio/Portfolio';
-import References from './DayOne/References/References';
+import Main  from './DayOne/Main/Main';
+
 
 const App = () => {
   return (
@@ -16,11 +13,7 @@ const App = () => {
 
 
       {/* <h1>This is first task about portfolio</h1> */}
-      <Header />
-      <AboutMe />
-      <Skills />
-      <Portfolio />
-      <References />
+      <Main />
       </>
     </div>
   );
