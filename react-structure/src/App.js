@@ -9,13 +9,13 @@ import References from './DayOne/References/References';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App" class="container">
       <>
       {/* <h1 className="text-primary bg-dark">This is first words from app.js</h1> */}
       {/* <First /> */}
 
 
-      <h1>This is first task about portfolio</h1>
+      {/* <h1>This is first task about portfolio</h1> */}
       <Header />
       <AboutMe />
       <Skills />
