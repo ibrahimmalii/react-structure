@@ -1,7 +1,7 @@
 
 import './App.css';
 import First from './First';
-import Main  from './DayOne/Main/Main';
+import Main  from './components/DayOne/Main/Main';
 
 
 const App = () => {
