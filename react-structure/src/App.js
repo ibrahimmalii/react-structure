@@ -1,22 +1,24 @@
-
 import './App.css';
 import First from './First';
-import Main  from './components/DayOne/Main/Main';
+import Main from './components/DayOne/Main/Main';
+import FunctionlTest from './components/DayTwo/FunctionalTest'
 
 
 const App = () => {
-  return (
-    <div className="App" class="container">
-      <>
-      {/* <h1 className="text-primary bg-dark">This is first words from app.js</h1> */}
-      {/* <First /> */}
+    return ( 
+    <div className = "App" class = "container" >
+        <> 
+        { /* <h1 className="text-primary bg-dark">This is first words from app.js</h1> */ } 
+        { /* <First /> */ }
 
 
-      {/* <h1>This is first task about portfolio</h1> */}
-      <Main />
-      </>
+        { /* <h1>This is first task about portfolio</h1> */ } 
+        {/* <Main / > */}
+
+        <FunctionlTest />
+        </>
     </div>
-  );
+    );
 }
 
 export default App;

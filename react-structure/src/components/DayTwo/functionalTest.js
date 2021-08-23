@@ -1,6 +1,7 @@
 import React from 'react';
+import { useState , useEffect } from 'react';
 
-const functionlTest = () => {
+const FunctionlTest = () => {
     /*
     **
     **there are functions in functional component like class (useEffect) and (useState)
@@ -29,12 +30,12 @@ const functionlTest = () => {
         return () => {
             console.log('UseEffect : Will UnMount')
         }
-    }, [input]);
+    }, ['input']);
 
     //============== if have dependences only => Did update 
     useEffect(() => {
         console.log('UseEffect : Did Update')
-    }, [input]);
+    }, ['input']);
 
 
     //============== if have't dependences => Did Mount
@@ -46,11 +47,16 @@ const functionlTest = () => {
     return(
         // we can use skillList without destruct 
         <>
-            <h1>{skillList.name}</h1>
+            {skillList.map(skill => 
+            <div>
+                <h1>{skill.name}</h1>
+                <h3>{skill.value}</h3>
+            </div>
+            )}
         </>
 
     )
 
-
-
 }
+
+export default FunctionlTest;
