@@ -1,29 +1,75 @@
 import React from 'react';
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const ManualForm = () => {
 
-    const [userInformation, setUserInformation] = useState([
+    const [userInformation, setUserInformation] = useState(
         {
             name: '',
             password: ''
         }
-    ]);
+    );
+
+    const [userInformationErr, setUserInformationErr] = useState({
+        nameErr: null ,
+        passwordErr : null  
+    });
+
+    var emailPattern = "^(.+)@(\\S+)$";
 
 
-    const changestatus = (e) =>{
-        if(e.target.name === 'name'){setUserInformation({
-            ...userInformation,
-            name : e.target.value
-        })} ;
-        if(e.target.name === 'password') {setUserInformation({
-            ...userInformation,
-            password : e.target.value
-        })};
-    }
+    const changestatus = (e) => {
+        if (e.target.name === 'name') {
+            setUserInformation({
+                //===========================> we have to use spread to modify what we need only <==================//
+                ...userInformation,
+                name: e.target.value
+            });
+            (e.target.value.length == 0) ? setUserInformationErr({
+                ... userInformationErr,
+                nameErr : 'This field is required'
+            }): (e.target.value.length < 5) ? setUserInformationErr({
+                ... userInformationErr,
+                nameErr : 'Min character is 5'
+            }): (userInformation.name.match(emailPattern) == null) ? setUserInformationErr({
+                ... userInformationErr,
+                nameErr : 'Invalid Email Please write @ and .'
+            }): setUserInformationErr({
+                ... userInformationErr,
+                nameErr : null
+            })
+        };
+
+        if (e.target.name === 'password') {
+            setUserInformation({
+                ...userInformation,
+                password: e.target.value
+            });
+            (e.target.value.length == 0) ? setUserInformationErr({
+                ... userInformationErr,
+                passwordErr : 'this field is required'
+            }) : (e.target.value.length < 8) ? setUserInformationErr({
+                ... userInformationErr,
+                passwordErr : 'Min password is 8'
+            }): setUserInformationErr({
+                ... userInformationErr,
+                passwordErr : null
+            })
+        };
+    };
+
+
 
     const submit = () => {
-
+        console.log(userInformation.name.length);
+        (userInformation.name.length == 0) && setUserInformationErr({
+            ...userInformationErr,
+            nameErr : 'this field is required'
+        });
+        (userInformation.password.length == 0) && setUserInformationErr({
+            ...userInformationErr,
+            passwordErr : 'this field is required'
+        });
         console.log(userInformation);
 
     }
@@ -35,11 +81,13 @@ const ManualForm = () => {
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                     <input type="email" className="form-control" name="name" onChange={changestatus} value={userInformation.name} />
+                    <small name="nameErr" className="text-danger fw-bold">{userInformationErr.nameErr}</small>
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input type="password" className="form-control" name="password" onChange={changestatus} value={userInformation.password} />
+                    <small name="passwordErr" className="text-danger fw-bold">{userInformationErr.passwordErr}</small>
                 </div>
                 <div className="mb-3 form-check">
                     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
