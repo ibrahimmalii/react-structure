@@ -15,6 +15,10 @@ const ManualForm = () => {
         passwordErr : null  
     });
 
+    const[inputType , setInputType] = useState({
+        type : 'password'
+    })
+
     var emailPattern = "^(.+)@(\\S+)$";
 
 
@@ -61,7 +65,6 @@ const ManualForm = () => {
 
 
     const submit = () => {
-        console.log(userInformation.name.length);
         (userInformation.name.length == 0) && setUserInformationErr({
             ...userInformationErr,
             nameErr : 'this field is required'
@@ -70,8 +73,17 @@ const ManualForm = () => {
             ...userInformationErr,
             passwordErr : 'this field is required'
         });
-        console.log(userInformation);
+        if(userInformationErr.nameErr == null && userInformationErr.passwordErr == null){
+            console.log(userInformation);
+        }
+    }
 
+    const showAndHide = () =>{
+        (inputType.type == 'password')? setInputType({
+            type : 'text'
+        }) : setInputType({
+            type : 'password'
+        })
     }
 
 
@@ -86,7 +98,8 @@ const ManualForm = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" name="password" onChange={changestatus} value={userInformation.password} />
+                    <input type={inputType.type} className="form-control" name="password" onChange={changestatus} value={userInformation.password} />
+                    <input type="checkbox" onChange={showAndHide}/>Show Password
                     <small name="passwordErr" className="text-danger fw-bold">{userInformationErr.passwordErr}</small>
                 </div>
                 <div className="mb-3 form-check">
