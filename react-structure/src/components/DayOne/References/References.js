@@ -4,7 +4,7 @@ import React from 'react';
 const References = () => {
     return(
         <>
-        <div class=" my-4 pt-3 bg-dark text-light">
+        <div className="my-5 pt-3 bg-dark text-light">
                 <div class="row px-2">
                     <div class="col-4">
                         <h5 class="fw-bold">Get In Touch</h5>

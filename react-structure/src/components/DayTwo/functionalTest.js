@@ -8,7 +8,7 @@ const FunctionlTest = () => {
     **
     */
 
-    //first useState 
+    //first useState ==> Now skillList is a key for obj of data below
     const [skillList ,setSkillList] = useState([
         {
             name : 'HTML',
@@ -24,6 +24,10 @@ const FunctionlTest = () => {
         },
     ]);
 
+    //============== if have't dependences => Did Mount // ONINIT
+    useEffect(() => {
+        console.log('UseEffect : Did Mount')
+    }, []);
 
     //============== if have dependences and return => will unmount
     useEffect(() => {
@@ -38,10 +42,6 @@ const FunctionlTest = () => {
     }, ['input']);
 
 
-    //============== if have't dependences => Did Mount
-    useEffect(() => {
-        console.log('UseEffect : Did Mount')
-    }, []);
 
 
     return(

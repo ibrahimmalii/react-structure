@@ -5,9 +5,9 @@ import React from 'react';
 const Header = (props) => {
     return (
         <>
-            <div class="mainWrapper py-4 my-3 bg-dark" className="mainWrapper">
-                <h1 class="text-secondary pt-4 mb-5 mx-4">{props.Name}</h1>
-                <button class="btn btn-danger mx-4">Contact Me</button>
+            <div className="mainWrapper py-5">
+                <h1 className="portName m-5 text-dark">{props.Name}</h1>
+                <button className="btn btn-primary p-3 mx-5">Contact Me</button>
             </div>
         </>
     )

@@ -5,7 +5,8 @@ const Skills = (props) => {
     // console.log(props);
     return (
         <>
-            <div className="skills" class="skills bg-dark text-center p-4">
+            <div className="skills" class="skills bg-dark text-center my-5 p-4">
+            {/* <div className="skills bg-dark text-center p-4"> */}
                 <div>
                     <h1>Skills</h1>
                     <p class="text-light lead">
@@ -34,7 +35,7 @@ const Skills = (props) => {
                         </div>
                         <lable for="progress">Angular</lable>
                         <div class="progress mb-4 mt-2">
-                            <div class="progress-bar bg-danger" role="progressbar" style={{width: '50%'}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger" role="progressbar" style={{width: '90%'}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <lable for="progress">React</lable>
                         <div class="progress mb-4 mt-2">

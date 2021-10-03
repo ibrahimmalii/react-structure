@@ -4,10 +4,10 @@ import React from 'react';
 const Portfolio = () => {
     return(
         <>
-        <div class="my-4 ">
+        <div className="my-5">
             <h1 class="fw-bold">Portfolio</h1>
         </div>
-        <div class="row mt-3">
+        <div className="row mt-3">
             <div class="col-4">
                 <div class="card text-center bg-info text-light" style={{height : '200px'}}>
                     <div class="card-body">

@@ -52,7 +52,7 @@ export default class Main extends React.Component{
 
         return(
             <>
-                <Header Name={"Ibrahim Ali"}/>
+                <Header Name={"Ibrahim Ali Mohamed"}/>
                 <AboutMe information = {aboutMe}/>
 
                 {/* //this is how to loop and send data to child component */}
