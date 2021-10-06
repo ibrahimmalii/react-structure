@@ -9,6 +9,8 @@ import NavBarComponent from './components/NabBar/NavBarComponent';
 import AddPerson from './components/DayThree/Add/AddPerson';
 import PersonList from './components/DayThree/List/PersonList';
 import UpdatePerson from './components/DayThree/Update/UpdatePerson';
+import MoviesList from './pages/Movies/MoviesList/MoviesList';
+import MovieDetails from './pages/Movies/MovieDetails/MovieDetails';
 
 
 
@@ -47,14 +49,11 @@ const App = () => {
                 <Router>
                 <NavBarComponent />
                 <Switch>
-                    <Route path="/add">
-                        <AddPerson />
-                    </Route>
-                    <Route path="/update" >
-                        <UpdatePerson />
+                    <Route path="/details/:id" >
+                        <MovieDetails />
                     </Route>
                     <Route path="/">
-                        <PersonList />
+                        <MoviesList />
                     </Route>
                 </Switch>
                 </Router>
