@@ -2,13 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import MovieDetailsCard from '../../../components/MovieDetailsCard/MovieDetailsCard';
 import { useState, useEffect } from 'react';
+import { axiosInstance } from '../../../components/axios/axiosInstance';
 
 export default function MoviesList() {
 
     const [MoviesList, setMoviesList] = useState([])
 
     useEffect(() => {
-        axios.get('https://api.themoviedb.org/3/movie/popular?api_key=7a1c19ea3c361a4d3cc53eb70ef8298c')
+        axiosInstance
+        .get('/movie/popular')
             .then(response => {
 
                 // console.log(response.data.results);
