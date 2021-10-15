@@ -13,7 +13,7 @@ export const axiosInstance = axios.create({
 // Add a request interceptor
 axiosInstance.interceptors.request.use(function (config) {
     // Do something before request is sent
-    config.params['language'] = 'ar';
+    config.params['language'] = 'en';
     return config;
 }, function (error) {
     // Do something with request error

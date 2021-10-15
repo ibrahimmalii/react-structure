@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import MovieDetailsCard from '../../../components/MovieDetailsCard/MovieDetailsCard';
 import { useState, useEffect } from 'react';
 import { axiosInstance } from '../../../components/axios/axiosInstance';
+import ChangeLanguage from '../../../components/ChangeLanguage/ChangeLanguage';
 
 export default function MoviesList() {
 
@@ -23,6 +23,7 @@ export default function MoviesList() {
 
     return (
         <div className="row">
+            <ChangeLanguage />
             {MoviesList.map((movie, index)=> <MovieDetailsCard movie={movie} key={index} />)}
         </div>
     )
