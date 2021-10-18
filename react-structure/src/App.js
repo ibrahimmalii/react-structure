@@ -20,6 +20,8 @@ import {
     Switch,
     Route
   } from "react-router-dom";
+import Todo from './components/DayTwo/Todo/Todo';
+import Calculator from './components/DayTwo/Calculator/Calculator';
 // import PersonList from './pages/List/PersonList';
 
 
@@ -39,14 +41,16 @@ const App = () => {
                 {/* Day two about forms and manually validation  */}
                 {/* <ManualForm /> */}
                 {/* <TodoList /> */}
+                <Calculator />
                 {/* <Revision /> */}
+                {/* <Todo /> */}
 
 
 
 
 
                 {/* Day 3 About Routing And Call Api */}
-                <Router>
+                {/* <Router>
                 <NavBarComponent />
                 <Switch>
                     <Route path="/details/:id" >
@@ -56,7 +60,7 @@ const App = () => {
                         <MoviesList />
                     </Route>
                 </Switch>
-                </Router>
+                </Router> */}
             </>
         </div>
     );

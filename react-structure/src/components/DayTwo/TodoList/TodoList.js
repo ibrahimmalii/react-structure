@@ -1,45 +1,66 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import {useState} from 'react';
+import { useState } from 'react';
 import cover from '../../../images/01.jpg';
 import personal from '../../../images/03.jpg';
 
 const TodoList = () => {
 
 
-    const [taskInfo , setTaskInfo] = useState([{
-        taskName : 'ibrahim',
-    }]);
+    const [taskInfo, setTaskInfo] = useState([
+        {
+            name: 'final project',
+        }, {
+            name: 'Upwork tasks',
+        }, {
+            name: 'Team leader',
+        }, {
+            name: 'Good Brother',
+        }
+    ]);
 
-    const [taskErr , setTaskErr] = useState({
-        taskErr : null,
+    const [newTask, setNewTask] = useState({
+        name: ''
+    })
+
+    const [taskErr, setTaskErr] = useState({
+        taskErr: null,
     });
 
-    const addNew = (e) => {
+    const handleAddTask = (e) => {
+        setNewTask({
+            name: e.target.value
+        })
+    }
 
-        console.log(e.target.name);
-        if(e.target.name == 'btn'){
-            const newTask = setTaskInfo([{
-                taskName : 'Ali',
-            }]);
-            taskInfo.push(newTask);
-            console.log(taskInfo[0])
-        }
+    const addNewTask = (e) => {
+        setTaskInfo([
+            ...taskInfo,
+            newTask
+        ])
+        setNewTask({
+            name : ''
+        })
         
-        // (e.target.value.length <= 5)?setTaskInfo({
-        //     taskErr : 'e.target.value',
-        // }) : setTaskErr({
-        //     taskErr : null,
-        // }) 
+    }
+
+    const handleDelete = (index) => {
+        taskInfo.splice(index, 1)
+        setTaskInfo([...taskInfo])
+    }
+
+    const handleUpdate = (index, value) => {
+        taskInfo[index].name = newTask.name
+        setTaskInfo([...taskInfo])
     }
 
 
     return (
         <>
-            <img src={cover} alt="any img" style={{width : "100%", height : "300px", marginTop : "20px" , borderRadius : "20px"}} />
-            <input type="text" className="form-control mt-5"  />
+            <img src={cover} alt="any img" style={{ width: "100%", height: "300px", marginTop: "20px", borderRadius: "20px" }} />
+            <input type="text" value={newTask.name} onChange={handleAddTask} className="form-control mt-5" />
             <small>{taskInfo.taskErr}</small>
-            <button onClick={addNew} name="btn" className="btn btn-dark my-2">ADD NEW TASK</button>
+            <button onClick={addNewTask} name="btn" className="btn btn-dark my-2">ADD NEW TASK</button>
             <Table striped bordered hover variant="dark" className="mt-5 text-center">
                 <thead>
                     <tr>
@@ -50,12 +71,13 @@ const TodoList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>{taskInfo.map(skill => <p>{skill.taskName}</p>)}</td>
-                        <td><button className="btn btn-info">Edit</button></td>
-                        <td><button className="btn btn-danger">Remove</button></td>
-                    </tr>
+                    {taskInfo.map((task, index) =>
+                        <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{task.name}</td>
+                            <td><button className="btn btn-primary" onClick={() => handleUpdate(index)}>Update</button></td>
+                            <td><button className="btn btn-danger" onClick={() => handleDelete(index)} >Delete</button></td>
+                        </tr>)}
                 </tbody>
             </Table>
         </>
