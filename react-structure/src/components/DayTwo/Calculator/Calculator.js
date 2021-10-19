@@ -1,7 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router';
 import CalculatorStyle from './Calculator.css'
 
 export default function Calculator() {
+
+    // const [calculatorList, setCalculatorList] = useState({
+    //     result: ''
+    // })
+    const history = useHistory()
+
+    function redirectToLogin() {
+    	history.push('/login');
+    }
+    useEffect(() => {
+        !localStorage.token && redirectToLogin()
+      },[])
 
     const [calculatorList, setCalculatorList] = useState({
         result: ''
@@ -9,11 +22,9 @@ export default function Calculator() {
 
     const newArr = []
     const handleCalculate = (e) => {
-
         setCalculatorList({
             result: calculatorList.result + e.target.value
         })
-
     }
 
     const calculateEquation = (e) => {

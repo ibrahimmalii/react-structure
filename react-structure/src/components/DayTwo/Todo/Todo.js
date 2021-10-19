@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { Form, Card, ListGroup, Button } from "react-bootstrap";
+import { useHistory } from "react-router";
 import "./todo.css";
 
 const Todo = () => {
+
+    const history = useHistory()
+
     const [tasks, setTask] = useState([
       {
         title: "wash car",
@@ -21,6 +25,14 @@ const Todo = () => {
       title: " ",
       id: 0,
     });
+
+    function redirectToLogin() {
+    	history.push('/login');
+    }
+
+    useEffect(() => {
+      alert('done')
+    },[])
   
     const handlerChange = (e) => {
       /* console.log(e.target.value) */

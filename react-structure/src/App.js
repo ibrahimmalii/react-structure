@@ -12,22 +12,37 @@ import UpdatePerson from './components/DayThree/Update/UpdatePerson';
 import MoviesList from './pages/Movies/MoviesList/MoviesList';
 import MovieDetails from './pages/Movies/MovieDetails/MovieDetails';
 
+// Guards Route 
+import { GuardProvider, GuardedRoute } from 'react-router-guards';
 
 
 // Import Router 
 import {
     BrowserRouter as Router,
     Switch,
-    Route
-  } from "react-router-dom";
+    Route,
+    Redirect
+} from "react-router-dom";
 import Todo from './components/DayTwo/Todo/Todo';
 import Calculator from './components/DayTwo/Calculator/Calculator';
 // import PersonList from './pages/List/PersonList';
 
+// About Guards Route 
+const requireLogin = (to, from, next) => {
+    if (to.meta.auth) {
+        if (localStorage.token) {
+            next();
+        }
+        next.redirect('/login');
+    } else {
+        next();
+    }
+};
+
 
 const App = () => {
     return (
-        <div className="App" className="container" >
+        <div className="App" >
             <>
                 { /* <h1 className="text-primary bg-dark">This is first words from app.js</h1> */}
                 { /* <First /> */}
@@ -41,12 +56,31 @@ const App = () => {
                 {/* Day two about forms and manually validation  */}
                 {/* <ManualForm /> */}
                 {/* <TodoList /> */}
-                <Calculator />
+                {/* <Calculator /> */}
                 {/* <Revision /> */}
                 {/* <Todo /> */}
 
 
+                {/* Day 3 about routing and axios */}
+                <Router>
+                    <GuardProvider guards={[requireLogin]}>
+                        <NavBarComponent />
+                        <Switch>
+                            <Route path="/" exact component={TodoList} meta={{ auth: true }} />
+                            <Route path="/calculator" exact component={Calculator} meta={{ auth: true }} />
+                            <Route path="/login" exact component={ManualForm} />
+                        </Switch>
+                    </GuardProvider>
+                </Router>
 
+                {/* <Router>
+                    <NavBarComponent />
+                    <Switch>
+                        <PrivateRoute path="/">
+                            <TodoList />
+                        </PrivateRoute>
+                    </Switch>
+            </Router> */}
 
 
                 {/* Day 3 About Routing And Call Api */}
@@ -62,7 +96,7 @@ const App = () => {
                 </Switch>
                 </Router> */}
             </>
-        </div>
+        </div >
     );
 }
 

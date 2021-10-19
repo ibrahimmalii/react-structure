@@ -16,11 +16,21 @@ export default function NavBarComponent() {
                                 <Link to="/" className="nav-link">Home</Link>
                             </li>
                             <li className="nav-item">
+                                <Link to="/calculator" className="nav-link" >Calculator</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/books" className="nav-link" >Books</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/login" className="nav-link">Login</Link>
+                            </li>
+                            {/* <li className="nav-item">
                                 <Link to="/details/:id" className="nav-link">Details</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/add" className="nav-link">Add Person</Link>
-                            </li>
+                            </li> */}
+                            
                         </ul>
                     </div>
                 </div>
