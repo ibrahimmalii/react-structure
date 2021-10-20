@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { changeLanguage } from './../../redux/actions';
+import changeLanguageAction from '../../redux/actions/ChangeLanguageAction';
 
 export default function ChangeLanguage() {
     const language = useSelector((state)=> state.currentLanguage);
     const disPatch = useDispatch();
     
     const handleChangeLanguage = ()=>{
-        disPatch(changeLanguage(language === 'ar' ? 'en' : 'ar'));
+        disPatch(changeLanguageAction(language === 'ar' ? 'en' : 'ar'));
     }
 
     return (

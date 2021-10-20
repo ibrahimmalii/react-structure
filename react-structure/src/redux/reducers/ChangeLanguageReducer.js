@@ -1,18 +1,19 @@
 const INITIAL_STATE = {
-    currentLanguage : 'ar'
+    currentLanguage: 'ar'
 };
 
-export default function language (state = INITIAL_STATE, action){
-    const {type, payload} = action
-    
+const languageReducer = (state = INITIAL_STATE, { type, payload }) => {
+
     switch (type) {
         case 'change_language':
             return {
                 ...state,
-                currentLanguage : payload
+                currentLanguage: payload
             };
-    
+
         default:
             return state;
     }
 }
+
+export default languageReducer;
