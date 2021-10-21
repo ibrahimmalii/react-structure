@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     currentLanguage: 'ar'
 };
 
-const languageReducer = (state = INITIAL_STATE, { type, payload }) => {
+const languageReducer = (state = INITIAL_STATE, { type, payload }={}) => {
 
     switch (type) {
         case 'change_language':

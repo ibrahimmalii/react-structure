@@ -1,20 +1,20 @@
-const INITIAL_STATE = {
-    counter: 0
-}
+// const INITIAL_STATE = {
+//     counter: 10
+// }
 
-const incrementReducer = (state = INITIAL_STATE.counter, { type, payload }) => {
-    switch (type) {
-        case 'INCREMENT_ACTION':
-            return {
-                ...state,
-                counter: payload
-            }
-            break;
+// const incrementReducer = (state = INITIAL_STATE, { type, payload }) => {
+//     switch (type) {
+//         case 'INCREMENT_ACTION':
+//             return {
+//                 ...state,
+//                 counter: payload
+//             }
+//             break;
 
-        default:
-            break;
-    }
-}
+//         default:
+//             break;
+//     }
+// }
 
-export default incrementReducer;
+// export default incrementReducer;
 

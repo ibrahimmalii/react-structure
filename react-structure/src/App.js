@@ -25,6 +25,7 @@ import {
 } from "react-router-dom";
 import Todo from './components/DayTwo/Todo/Todo';
 import Calculator from './components/DayTwo/Calculator/Calculator';
+import Counter from './components/Counter/Counter';
 // import PersonList from './pages/List/PersonList';
 
 // About Guards Route 
@@ -69,6 +70,7 @@ const App = () => {
                             <Route path="/" exact component={TodoList} meta={{ auth: true }} />
                             <Route path="/calculator" exact component={Calculator} meta={{ auth: true }} />
                             <Route path="/login" exact component={ManualForm} />
+                            <Route path="/counter" exact component={Counter} />
                         </Switch>
                     </GuardProvider>
                 </Router>
